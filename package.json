@@ -1,0 +1,103 @@
+{
+  "name": "electronreactbase",
+  "version": "0.1.0",
+  "description": "Electron React Setup based on CRA",
+  "private": true,
+  "main": "public/electron.js",
+  "scripts": {
+    "start": "craco start",
+    "build": "craco build",
+    "test": "craco test",
+    "install": "electron-rebuild",
+    "postinstall": "electron-builder install-app-deps",
+    "electron-dev": "electron .",
+    "builder": "electron-builder",
+    "package": "npm run build && npm run builder",
+    "pack:win32": "electron-builder -w --ia32",
+    "pack:win64": "electron-builder -w --x64"
+  },
+  "homepage": ".",
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "dependencies": {
+    "electron-is-dev": "^1.2.0",
+    "sqlite3": "^5.0.0"
+  },
+  "devDependencies": {
+    "@craco/craco": "^5.7.0",
+    "@testing-library/jest-dom": "^4.2.4",
+    "@testing-library/react": "^9.3.2",
+    "@testing-library/user-event": "^7.1.2",
+    "@types/jest": "^24.0.0",
+    "@types/node": "^12.0.0",
+    "@types/react": "^16.9.0",
+    "@types/react-dom": "^16.9.0",
+    "@types/sqlite3": "^3.1.6",
+    "electron": "^10.1.4",
+    "electron-builder": "^22.9.1",
+    "electron-rebuild": "^2.2.0",
+    "formik": "^2.2.0",
+    "react": "^16.14.0",
+    "react-dom": "^16.14.0",
+    "react-scripts": "3.4.3",
+    "typescript": "~3.7.2"
+  },
+  "author": {
+    "name": "Ajay More",
+    "email": "abc@xyz.in",
+    "url": "https://ajaymore.github.io"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ajaymore/electron-react-base.git"
+  },
+  "keywords": [
+    "React",
+    "Electron",
+    "SQlite3"
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ajaymore/electron-react-base/issues"
+  },
+  "build": {
+    "appId": "io.github.ajaymore",
+    "productName": "ElectronReactBase",
+    "artifactName": "ElectronReactBase-v${version}.${ext}",
+    "copyright": "Copyright © 2019 ${author}",
+    "mac": {
+      "category": "public.app-category.utilities"
+    },
+    "win": {
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64"
+          ]
+        }
+      ]
+    },
+    "files": [
+      "build/**/*",
+      "main_process/**/*",
+      "node_modules/**/*"
+    ],
+    "directories": {
+      "buildResources": "assets"
+    }
+  }
+}
